@@ -1,0 +1,220 @@
+html {
+    background-color: bisque;
+    
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.popup{
+    color: white;
+    display: block;
+    padding-left: 60px;
+    font-weight: bold;
+    background-color: black;
+    opacity: 0.5;
+    font-size: 20px;
+    width: 20%;
+    
+}
+
+.details {
+    width: 70%;
+    height: 400px;
+    color: purple;
+    top: 27%;
+    left: 50%;
+    position: absolute;
+    padding: 50px 30px;
+    transform: translate(-50% , -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.details p {
+    padding-bottom: 10px;
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.details input {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border-color: orange;
+    font-size: 25px;
+    opacity: 0.7;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+
+::placeholder {
+    font-size: 16px;
+    padding: 2px 0 5px 2px;
+}
+
+.details h1{
+    font-size: 20px;
+    text-align: center;
+    padding: -30px 0 20px;
+}
+
+#mainbutton {
+    color: white;
+    background-color: plum;
+    width: 100%;
+    height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#mainbutton:hover {
+    background-color: indigo;
+    font-size: 20px;
+}
+
+input:hover {
+    border: 3px solid purple;
+}
+
+.column {
+    display: flex;
+    width: 50%;
+    height: 40%;
+    padding: 0 10px;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+
+.row {
+    margin: 0 -5px;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.card {
+    border: 4px solid black;
+    box-shadow: 0 4px 8px 0 palevioletred;
+    transition: 0.3s;
+    margin: 10px;
+    padding: 40px;
+    max-width: 100%;
+
+}
+
+.card:hover {
+    box-shadow: 0 25px 25px 0 palevioletred;
+}
+
+#container {
+    
+    word-wrap: break-word;
+    width: 100%;
+    height: 70%;
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card img {
+    width: 100%;
+}
+
+#mssg1 {
+    color: white;
+    font-weight: bold;
+    background-color: red;
+    opacity: 0.5;
+    font-family: sans-serif;
+    padding-top: 5px;
+    position: absolute;
+    left: 30%;
+}
+
+#mssg2 {
+    color: white;
+    font-weight: bold;
+    background-color: green;
+    font-family: sans-serif;
+    opacity: 0.5;
+    padding-top: 5px;
+    position: absolute;
+    left: 60%;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+    padding-top:5px;
+    color: purple;
+    border-top: 3px solid black;
+    text-align: center;
+    background-color: darksalmon;
+    font-weight: bold;
+}
+
+#delbutton {
+    width: 30%;
+    left: 100%;
+}
+
+#author {
+    padding-top: 4px;
+    color: rebeccapurple;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#caption{
+    padding-top: 0;
+    color: palevioletred;
+    opacity: 0.7;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.delete {
+    display: block;
+    color: white;
+    background-color: plum;
+    border-radius: 3px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.delete:hover {
+    background-color: magenta;
+    opacity: 0.7;
+}
+
+.update {
+    display: block;
+    color: white;
+    background-color: plum;
+    border-radius: 3px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.update:hover {
+    background-color: magenta;
+    opacity: 0.7;
+}
+

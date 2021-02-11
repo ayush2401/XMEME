@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> XMEME APP </title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="icon" href="/images/icon.jpg">
+
+    </head>
+
+    <body>
+        <p class="popup"> <%= message %> </p>
+        <div class="details">
+            <h1> MEME STREAM </h1>
+            <form action="/memes" method="POST">
+                    <p> Enter name </p>
+                    <input type="text" name="author" placeholder="Get enrolled to the page">
+                
+                    <p> Enter caption </p>
+                    <input type="text" name="caption" placeholder="what's in your mind">
+        
+                    <p> Enter url </p>
+                    <input type="url" name="url" id="url" placeholder="url...">
+                
+                <button id="mainbutton" type="submit"> submit </button> <br><br>
+                
+
+            </form>
+
+            <div class="row">
+                <div class="column">
+                    <%if (records.length > 0) { %>
+                        <% records.forEach(function(ele) { %>
+                            <br>
+                            <div class="card">
+                                <img id="image" src="<%= ele.url %>">
+                                <div  id="container">
+                                    <p id="author"> <%= ele.author %></p>
+                                    <p id="caption">  <%= ele.caption %></p>
+                                </div>
+                                <a class="delete" data-doc="<%= ele._id %>"> delete </a> <br>
+                                <a class="update" href = "/update/<%= ele._id %>"> update </a>
+                            </div>
+                        <% }) }%>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <p style="color: green;"> <%= message %> </p> -->
+       <footer> Created by Ayush  </footer>
+
+       <script>
+           const trash = document.querySelectorAll('a.delete');
+           const upd = document.querySelectorAll('a.update');
+      
+          for(let i of trash) {
+                i.addEventListener('click' , (e) => {
+                    const endpoint = '/delete/' + i.dataset.doc;
+                    console.log(endpoint)
+
+                    fetch(endpoint , {
+                        method: 'DELETE'
+                    })
+                    .then((response) => response.json())
+                    .then((data) => window.location.href = data.redirect)
+                    .catch(err => console.log(err))
+                })
+        }
+
+       </script>
+    </body>
+
+</html>
