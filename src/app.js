@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
 const ejs = require('ejs')
-const uploadModel = require('../modules/upload')
+const uploadModel = require('../models/upload')
 const request = require('request')
 const methodOvrride = require('method-override')
 
