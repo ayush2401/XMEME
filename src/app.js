@@ -113,6 +113,13 @@ app.get('/update/:id' , (req , res) => {
 app.patch('/updated' ,  (req , res) => {
     
      const _id = updateid
+
+     if(req.body.caption == '' || req.body.url == '') {
+        res.render('error' , {
+            title: 'error'
+        })
+     }
+     else {
         uploadModel.findByIdAndUpdate(_id , {
             caption: req.body.caption,
             url: req.body.url
@@ -129,6 +136,7 @@ app.patch('/updated' ,  (req , res) => {
                 })
             }
        })
+    }
 })
 
 
