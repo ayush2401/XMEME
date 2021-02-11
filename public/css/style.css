@@ -87,21 +87,10 @@ input:hover {
     display: flex;
     width: 50%;
     height: 40%;
-    padding: 0 10px;
+    padding: 0 3px 3px 0;
     flex-wrap: wrap;
     align-items: center;
-
-}
-
-
-.row {
     margin: 0 -5px;
-}
-
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 .card {
@@ -129,28 +118,6 @@ input:hover {
 
 .card img {
     width: 100%;
-}
-
-#mssg1 {
-    color: white;
-    font-weight: bold;
-    background-color: red;
-    opacity: 0.5;
-    font-family: sans-serif;
-    padding-top: 5px;
-    position: absolute;
-    left: 30%;
-}
-
-#mssg2 {
-    color: white;
-    font-weight: bold;
-    background-color: green;
-    font-family: sans-serif;
-    opacity: 0.5;
-    padding-top: 5px;
-    position: absolute;
-    left: 60%;
 }
 
 footer {

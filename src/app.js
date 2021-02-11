@@ -5,8 +5,11 @@ const ejs = require('ejs')
 const uploadModel = require('../models/upload')
 const request = require('request')
 const methodOvrride = require('method-override')
+var sleep = require('system-sleep')
 
 const app = express()
+
+sleep(5000)
 
 const dbURL = 'mongodb://localhost:27017/node-app'
 mongoose.connect(dbURL , {useNewUrlParser: true , useUnifiedTopology: true})
@@ -24,11 +27,14 @@ const partialPath = path.join(__dirname,'../templates/partials')
 
 app.set('view engine' , 'ejs')
 app.set('views' , viewsPath)
+mongoose.set('useFindAndModify', false);
 
 app.use(express.static(publicPath))
 app.use(express.json())
 app.use(methodOvrride("_method"));
 app.use(express.urlencoded({extended:true}))
+
+
 
 var updateid;
 
@@ -40,12 +46,13 @@ app.post('' , (req , res) => {
 app.post('/memes' , (req , res) =>  {
 
    var imageDetails = new uploadModel({
-       author: req.body.author,
+       name: req.body.name,
        caption: req.body.caption,
        url: req.body.url
    })
 
-   if(imageDetails.author =='' || imageDetails.caption == '' || imageDetails.url == '') {
+
+   if(imageDetails.name =='' || imageDetails.caption == '' || imageDetails.url == '') {
         
         imageDetails.url = ''
         return res.render('index' , {
