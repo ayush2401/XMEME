@@ -8,13 +8,14 @@ const methodOvrride = require('method-override')
 var sleep = require('system-sleep')
 
 const app = express()
+const port = process.env.PORT || 8081
 
-sleep(5000)
+sleep(10000)
 
 const dbURL = 'mongodb://localhost:27017/node-app'
 mongoose.connect(dbURL , {useNewUrlParser: true , useUnifiedTopology: true})
-    .then((result) => app.listen(8081 , () => {
-        console.log('server running on 8081')
+    .then((result) => app.listen(port , () => {
+        console.log('server running on ' + port)
     }))
     .catch((err) => console.log(err));
 
