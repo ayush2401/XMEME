@@ -1,6 +1,5 @@
 html {
-    background-color: bisque;
-    
+    background-image: url(../images/back.jpg);
 }
 
 body {
@@ -148,7 +147,6 @@ footer {
 #caption{
     padding-top: 0;
     color: palevioletred;
-    opacity: 0.7;
     font-family: monospace;
     font-size: 16px;
 }
