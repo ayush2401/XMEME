@@ -12,7 +12,7 @@ const port = process.env.PORT || 8081
 
 // sleep(10000)
 
-const dbURL = 'mongodb://localhost:27017/node-app'
+const dbURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/node-app'
 mongoose.connect(dbURL , {useNewUrlParser: true , useUnifiedTopology: true})
     .then((result) => app.listen(port , () => {
         console.log('server running on ' + port)
