@@ -40,11 +40,11 @@ app.use(express.urlencoded({extended:true}))
 var updateid;
 
 app.post('' , (req , res) => {
-    res.redirect('/memes')
+    res.redirect('/add')
 })
 
 
-app.post('/memes' , (req , res) =>  {
+app.post('/add' , (req , res) =>  {
 
    var imageDetails = new uploadModel({
        name: req.body.name,
@@ -77,6 +77,33 @@ app.post('/memes' , (req , res) =>  {
     })
 })
 
+app.post('/memes' , (req , res) =>  {
+
+    var imageDetails = new uploadModel({
+        name: req.body.name,
+        caption: req.body.caption,
+        url: req.body.url
+    })
+ 
+ 
+    if(imageDetails.name =='' || imageDetails.caption == '' || imageDetails.url == '') {
+         
+         imageDetails.url = ''
+         return res.status(404).render('index' , {
+             message: 'invalid credentials',
+             records: imageDetails
+         })
+     }
+     
+   
+     imageDetails.save((err , doc) => {
+         if(err) throw err
+         const data = {
+             id: doc._id
+         }
+         res.send(data);
+     })
+ })
 
 
 
@@ -99,8 +126,7 @@ app.get('/memes' , (req,res) => {
 
     imageData.exec((err , data) => {
         if(err) throw err
-        console.log(data)
-        res.json(data)
+        res.send(data)
     })
 })
 
