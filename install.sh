@@ -1,22 +1,22 @@
-npm init -y
+# npm init -y
 
 cd src
 
-npm i ejs
+# npm i ejs
 
-npm i express 
+# npm i express 
 
-npm i mongoose
+# npm i mongoose
 
-npm i hbs
+# npm i hbs
 
-npm i request
+# npm i request
 
-npm i method-override
+# npm i method-override
 
 cd ../models
 
-npm i mongoose
+# npm i mongoose
 
 
 

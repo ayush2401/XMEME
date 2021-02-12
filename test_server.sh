@@ -1,6 +1,6 @@
 chmod +x install.sh
 
-sudo ./install.sh
+./install.sh
 
 
 

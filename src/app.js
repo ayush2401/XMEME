@@ -10,7 +10,7 @@ var sleep = require('system-sleep')
 const app = express()
 const port = process.env.PORT || 8081
 
-sleep(10000)
+// sleep(10000)
 
 const dbURL = 'mongodb://localhost:27017/node-app'
 mongoose.connect(dbURL , {useNewUrlParser: true , useUnifiedTopology: true})
@@ -56,16 +56,17 @@ app.post('/memes' , (req , res) =>  {
    if(imageDetails.name =='' || imageDetails.caption == '' || imageDetails.url == '') {
         
         imageDetails.url = ''
-        return res.render('index' , {
+        return res.status(404).render('index' , {
             message: 'invalid credentials',
             records: imageDetails
         })
     }
-
+    
   
     imageDetails.save((err , doc) => {
 
         if(err) throw err
+
             imageData.exec((err , data) => {
                 if(err) throw err
                     res.render('index' , {
@@ -78,11 +79,12 @@ app.post('/memes' , (req , res) =>  {
 
 
 
+
 app.get('' , (req , res) => {
-   res.redirect('/memes')
+   res.redirect('/info')
 })
 
-app.get('/memes' , (req , res) => {
+app.get('/info' , (req , res) => {
 
     imageData.exec((err , data) => {
         if(err) throw err
@@ -93,15 +95,40 @@ app.get('/memes' , (req , res) => {
     })
 })
 
+app.get('/memes' , (req,res) => {
+
+    imageData.exec((err , data) => {
+        if(err) throw err
+        console.log(data)
+        res.json(data)
+    })
+})
+
+app.get('/memes/:id' , (req,res) => {
+
+    const id = req.params.id
+    uploadModel.findById(id)
+    .then(result => {
+        res.json(result)
+    })
+    .catch(err => {
+        res.render('error' , {
+            title: 'error'
+        })
+    })
+})
+
 app.delete('/delete/:id' , (req , res) => {
     const id = req.params.id;
 
     uploadModel.findByIdAndDelete(id)
       .then(result => {
-          res.json({ redirect: '/memes'})
+          res.json({ redirect: '/info'})
       })
       .catch(err => {
-          console.log(err)
+        res.render('error' , {
+            title: 'error'
+        })
       })
 
 })
@@ -113,7 +140,9 @@ app.get('/update/:id' , (req , res) => {
         id:updateid
     })
     }catch(err) {
-        console.log(err)
+        res.render('error' , {
+            title: 'error'
+        })
     }
 })
 
@@ -132,8 +161,11 @@ app.patch('/updated' ,  (req , res) => {
             caption: req.body.caption,
             url: req.body.url
         } , (err , docs) => {
-            if(err)
-            console.log(err)
+            if(err) {
+                res.render('error' , {
+                    title: 'error'
+                })
+            }
             else {
                 imageData.exec((err , data) => {
                     if(err) throw err
@@ -149,7 +181,7 @@ app.patch('/updated' ,  (req , res) => {
 
 
 
-app.get('/memes/*' , (req , res) => {
+app.get('/info/*' , (req , res) => {
     res.render('error' , {
         title: 'error'
     })
