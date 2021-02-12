@@ -82,24 +82,36 @@ input:hover {
     border: 3px solid purple;
 }
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10%;
+    padding: 10px;
+    left: 10px;
+    align-items: center;
+  }
+
 .column {
     display: flex;
-    width: 50%;
-    height: 40%;
-    padding: 0 3px 3px 0;
     flex-wrap: wrap;
-    align-items: center;
-    margin: 0 -5px;
+    @media(min-width: 40rem) {
+      width: 50%;
+    }
+    @media(min-width: 56rem) {
+      width: 33.3333%;
+    }
 }
 
 .card {
     border: 4px solid black;
     box-shadow: 0 4px 8px 0 palevioletred;
     transition: 0.3s;
-    margin: 10px;
-    padding: 40px;
-    max-width: 100%;
-
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 10px;
+    word-wrap: break-word;
+    
 }
 
 .card:hover {
@@ -108,15 +120,21 @@ input:hover {
 
 #container {
     
-    word-wrap: break-word;
-    width: 100%;
-    height: 70%;
+ word-wrap: break-word;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
     font-size: 13px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .card img {
-    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
 }
 
 footer {
@@ -184,3 +202,17 @@ footer {
     opacity: 0.7;
 }
 
+@media screen and (max-width: 600px) {
+    .card {
+        width: 100%;
+    }
+
+
+    #caption , #delete , #update {
+        font-size: 10px;
+    }
+
+    #author {
+        font-size: 12px;
+    }
+  }
