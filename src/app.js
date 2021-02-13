@@ -44,7 +44,7 @@ app.post('' , (req , res) => {
 })
 
 
-app.post('/add' , (req , res) =>  {
+app.post('/add' , async(req , res) =>  {
 
    var imageDetails = new uploadModel({
        name: req.body.name,
@@ -62,19 +62,21 @@ app.post('/add' , (req , res) =>  {
         })
     }
     
-  
-    imageDetails.save((err , doc) => {
+    
+    await imageDetails.save();
+    res.redirect(303 , "/info");
+    // imageDetails.save((err , doc) => {
 
-        if(err) throw err
+    //     if(err) throw err
 
-            imageData.exec((err , data) => {
-                if(err) throw err
-                    res.render('index' , {
-                        message: 'success',
-                        records: data
-                    })
-            })
-    })
+    //         imageData.exec((err , data) => {
+    //             if(err) throw err
+    //                 res.render('index' , {
+    //                     message: 'success',
+    //                     records: data
+    //                 })
+    //         })
+    // })
 })
 
 app.post('/memes' , (req , res) =>  {
