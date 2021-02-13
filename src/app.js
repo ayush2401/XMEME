@@ -14,6 +14,7 @@ const app = express()
 // merging local port to port used in deployment
 const port = process.env.PORT || 8081
 
+// sleep(60)
 // merging the remote databse url mongodbatlas used for deployment along with the local mongodb 
 const dbURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/node-app'
 mongoose.connect(dbURL , {useNewUrlParser: true , useUnifiedTopology: true})
