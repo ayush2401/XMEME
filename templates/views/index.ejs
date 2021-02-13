@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+    
+    <!-- containg the externnal style sheets with title and icon -->
     <head>
         <title> XMEME APP </title>
         <link rel="stylesheet" href="/css/style.css">
@@ -10,9 +12,15 @@
 
     <body>
         <header> Created by Ayush  </header>
+
+        <!-- response from the app whether a valid post is made or not -->
+
+
         <p class="popup"> <%= message %> </p>
         <div class="details">
             <h1> MEME STREAM </h1>
+
+            <!-- form containing the fields name , caption , url to be entered by the user sending by a POST method -->
             <form action="/add" method="POST">
                     <p> Enter name </p>
                     <input type="text" name="name" placeholder="Get enrolled to the page">
@@ -27,7 +35,8 @@
                 
 
             </form>
-
+                
+             <!-- displaying memes from response data to the home page  -->
                 <section class="column">
                     <%if (records.length > 0) { %>
                         <% records.forEach(function(ele) { %>
@@ -38,6 +47,8 @@
                                     <p id="author"> <%= ele.name %></p>
                                     <p id="caption">  <%= ele.caption %></p>
                                 </div>
+
+                                <!-- enabled delete and update options -->
                                 <a class="delete" data-doc="<%= ele._id %>"> delete </a> <br>
                                 <a class="update" href = "/update/<%= ele._id %>"> update </a>
                             </div>
@@ -45,7 +56,8 @@
                 </section>
         </div>
         
-        <!-- <p style="color: green;"> <%= message %> </p> -->
+       
+        <!-- javascript script to execute a fetch API call to delete data -->
 
        <script>
             const trash = document.querySelectorAll('a.delete');
@@ -54,8 +66,8 @@
                 for(let i of trash) {
                 i.addEventListener('click' , (e) => {
                     const endpoint = '/delete/' + i.dataset.doc;
-                    console.log(endpoint)
 
+                    // fetch API to delete a meme .A promise response redirecting to the home page
                     fetch(endpoint , {
                         method: 'DELETE'
                     })
