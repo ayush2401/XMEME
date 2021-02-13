@@ -175,7 +175,7 @@ app.get('/update/:id' , (req , res) => {
 })
 
 
-app.patch('/updated' ,  (req , res) => {
+app.patch('/updated' ,  async (req , res) => {
     
      const _id = updateid
 
@@ -185,26 +185,13 @@ app.patch('/updated' ,  (req , res) => {
         })
      }
      else {
-        uploadModel.findByIdAndUpdate(_id , {
+       await uploadModel.findByIdAndUpdate(_id , {
             caption: req.body.caption,
             url: req.body.url
-        } , (err , docs) => {
-            if(err) {
-                res.render('error' , {
-                    title: 'error'
-                })
-            }
-            else {
-                imageData.exec((err , data) => {
-                    if(err) throw err
-                    res.render('index' , {
-                        message: '',
-                        records: data
-                    })
-                })
-            }
-       })
-    }
+        })
+
+        res.redirect(303 , "/info")
+     }
 })
 
 
