@@ -139,7 +139,7 @@ input:hover {
 
 header {
     width: 100%;
-    padding: 2px;
+    padding: 2px 0;
     color: deeppink;
     border-top: 3px solid black;
     text-align: center;
