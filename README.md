@@ -13,21 +13,54 @@ One can update any meme with a new caption and with new image. All it requires i
 # OVERVIEW
 
 
-<img src = 'public/images/back.jpg' width = "250" height = "300">
+<img src = 'public/images/screen1.jpg' width = "500" height = "350">
 
-<img src = 'public/images/back.jpg' width = "250" height = "300">
+
+<img src = 'public/images/screen2.jpg' width = "500" height = "350">
 
 # Techstack
 
-Frontend:- HTML , CSS , JAVASCRIPT <br>
-BACKEND:- NODE.js , EXPRESS , MONGODB
+- Frontend:- HTML , CSS , JAVASCRIPT <br> <br>
 
-Website Deployed on Heroku
+- BACKEND:- NODE.js , EXPRESS , MONGODB for Database
+
+# API
+
+The frontend and backend are connected via REST API. <br>
+- An HTTP POST request thorugh the form sending the data - name , url , caption to the database. <br>
+
+- FETCH API to send a delete request if any made by the user. <br>
+
+- PATCH API to update any pre loaded data. Every meme is assigned with a unique id is handled by the update/:id request
+
+- An HTTP GET request by the handler function to /memes responding a JSON with unique ID assigned to each post.
+
+- /memes/:id call uses the unique assigned id to fetch information from the database if a valid entry is executed.
+
+<h3> Dependencies
+
+- express , mongoose , request , ejs , system-sleep , method-override
+
+<h4> Installation
+
+- install.sh - install npm , dependencies mentioned to source directory (/src) , mongoose for model creation (/models) 
+
+- npm install
+
+- server_run.sh (/src) - npm start
+
+<h4> start script - node src/app.js
 
 
+# UPDATES
 
+- User Authentication can be introduced in order to maintain the decency of the page.
 
+- memes could be previewed in order of likes and wishlist for a user.
 
+- Categorising memes. <br> <br>
+
+- <h1> YALA <a> http://surfer-xmeme.herokuapp.com/ </a>
 
 
 

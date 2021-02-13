@@ -46,7 +46,7 @@ app.use(express.urlencoded({extended:true}))
 // global parameter to store id of the meme to be updated
 var updateid;
 
-// routing HTTP POST request with the root and redirecting to the update window
+// routing HTTP POST request with the root and redirecting to the form window
 app.post('' , (req , res) => {
     res.redirect('/add')
 })
