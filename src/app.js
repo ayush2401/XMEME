@@ -8,13 +8,13 @@ const uploadModel = require('../models/upload')
 const request = require('request')
 const methodOvrride = require('method-override')
 var sleep = require('system-sleep')
+const { Console } = require('console')
 
 const app = express()
 
 // merging local port to port used in deployment
 const port = process.env.PORT || 8081
 
-// sleep(60)
 // merging the remote databse url mongodbatlas used for deployment along with the local mongodb 
 const dbURL = process.env.MONGODB_URI || 'mongodb://localhost:27017/node-app'
 mongoose.connect(dbURL , {useNewUrlParser: true , useUnifiedTopology: true})
@@ -47,6 +47,17 @@ app.use(express.urlencoded({extended:true}))
 // global parameter to store id of the meme to be updated
 var updateid;
 
+function checkUrl(url) {
+    var arr = ["jpeg" , "jpg" , "gif" , "png"]
+    var ext = url.substring(url.lastIndexOf(".") + 1);
+    for(let i = 0 ; i < arr.length ; i++) {
+        if(ext == arr[i])
+        return 1;
+    }
+
+    return 0;
+}
+
 // routing HTTP POST request with the root and redirecting to the form window
 app.post('' , (req , res) => {
     res.redirect('/add')
@@ -61,11 +72,10 @@ app.post('/add' , async(req , res) =>  {
        url: req.body.url
    })
 
+   var ok = checkUrl(req.body.url);
    // form validation with any empty credentials throwing a 404 satus
-   if(imageDetails.name =='' || imageDetails.caption == '' || imageDetails.url == '') {
-        
-        imageDetails.url = ''
-        return res.status(404).render('index' , {
+   if(imageDetails.name =='' || imageDetails.caption == '' || imageDetails.url == '' || ok == 0) {
+            return res.status(404).render('index' , {
             message: 'invalid credentials',
             records: imageDetails
         })
@@ -88,12 +98,11 @@ app.post('/memes' , (req , res) =>  {
         caption: req.body.caption,
         url: req.body.url
     })
-  
+     
+    var ok = checkUrl(req.body.url);
     // form validation for empty credentials
-    if(imageDetails.name =='' || imageDetails.caption == '' || imageDetails.url == '') {
-         
-         imageDetails.url = ''
-         return res.status(404).render('index' , {
+    if(imageDetails.name =='' || imageDetails.caption == '' || imageDetails.url == '' || ok == 0) {
+             return res.status(404).render('index' , {
              message: 'invalid credentials',
              records: imageDetails
          })
@@ -192,7 +201,8 @@ app.patch('/updated' ,  async (req , res) => {
      const _id = updateid
     
      // validation 
-     if(req.body.caption == '' || req.body.url == '') {
+     var ok = checkUrl(req.body.url);
+     if(req.body.caption == '' || req.body.url == '' || ok == 0) {
         res.render('error' , {
             title: 'error'
         })
