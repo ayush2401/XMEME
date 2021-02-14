@@ -203,13 +203,21 @@ header {
 }
 
 @media screen and (max-width: 600px) {
-    .card {
+    
+    .details {
         width: 100%;
     }
 
-    .card img {
-        height: 130px;
+    #mainbutton {
         width: 100%;
+    }
+    .card {
+        width: 210px;
+    }
+
+    .card img {
+        height: 150px;
+        width: 200px;
         overflow: hidden;
     }
 
