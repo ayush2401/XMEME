@@ -208,8 +208,9 @@ header {
     }
 
     .card img {
-        height: 100px;
+        height: 130px;
         width: 100%;
+        overflow: hidden;
     }
 
     #caption , #delete , #update {
