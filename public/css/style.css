@@ -94,12 +94,15 @@ input:hover {
 .column {
     display: flex;
     flex-wrap: wrap;
+    padding-left: 10px;
+    padding-right: -5px;
     @media(min-width: 40rem) {
       width: 50%;
     }
     @media(min-width: 56rem) {
       width: 33.3333%;
     }
+
 }
 
 .card {
@@ -108,7 +111,7 @@ input:hover {
     transition: 0.3s;
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 43%;
     padding: 10px;
     word-wrap: break-word;
     
@@ -135,6 +138,7 @@ input:hover {
     background-size: cover;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
+    height: 360px;
 }
 
 header {
@@ -155,7 +159,7 @@ header {
 
 #author {
     padding-top: 4px;
-    color: rebeccapurple;
+    color: darkorchid;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -203,6 +207,10 @@ header {
         width: 100%;
     }
 
+    .card img {
+        height: 100px;
+        width: 100%;
+    }
 
     #caption , #delete , #update {
         font-size: 10px;
