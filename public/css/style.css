@@ -212,14 +212,15 @@ header {
         width: 100%;
     }
     .card {
-        width: 260px;
+        width: 280px;
         height: 380px;
     }
 
     .card img {
         height: 320px;
-        width: 250px;
+        width: 275px;
         overflow: hidden;
+        padding-right: 2px;
     }
 
     #caption , #delete , #update {
@@ -228,5 +229,15 @@ header {
 
     #author {
         font-size: 14px;
+    }
+
+    header {
+       opacity: 0;
+    }
+
+    #mainbutton {
+        padding-right: 0;
+        width: 100%;
+        margin-right: 0;
     }
   }
