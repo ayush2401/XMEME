@@ -1,5 +1,7 @@
 sudo apt -y update
 
+curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+
 sudo apt -y install nodejs
 
 sudo apt -y install npm
@@ -17,28 +19,4 @@ sudo systemctl start mongod
 sudo systemctl enable mongod
 
 npm init -y
-
-cd src
-
-npm i ejs
-
-npm i express 
-
-npm i mongoose
-
-npm i hbs
-
-npm i request
-
-npm i method-override
-
-npm i system-sleep
-
-cd ../models
-
-npm i mongoose
-
-cd ..
-
-
 
