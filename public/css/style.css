@@ -241,3 +241,83 @@ header {
         margin-right: 0;
     }
   }
+
+  @media screen and (max-width: 1200px) {
+    
+    .details {
+        width: 100%;
+    }
+
+    #mainbutton {
+        width: 100%;
+    }
+    .card {
+        width: 260px;
+        height: 380px;
+    }
+
+    .card img {
+        height: 320px;
+        width: 255px;
+        overflow: hidden;
+        padding-right: 2px;
+    }
+
+    #caption , #delete , #update {
+        font-size: 12px;
+    }
+
+    #author {
+        font-size: 14px;
+    }
+
+    header {
+       opacity: 0;
+    }
+
+    #mainbutton {
+        padding-right: 0;
+        width: 100%;
+        margin-right: 0;
+    }
+  }
+
+  @media screen and (max-width: 2500px) {
+    
+    .details {
+        width: 100%;
+    }
+
+    #mainbutton {
+        width: 100%;
+    }
+    .card {
+        width: 320px;
+        height: 400px;
+    }
+
+    .card img {
+        height: 340px;
+        width: 305px;
+        overflow: hidden;
+        padding-right: 2px;
+    }
+
+    #caption , #delete , #update {
+        font-size: 12px;
+    }
+
+    #author {
+        font-size: 14px;
+    }
+
+    header {
+       opacity: 0;
+    }
+
+    #mainbutton {
+        padding-right: 0;
+        width: 100%;
+        margin-right: 0;
+    }
+  }
