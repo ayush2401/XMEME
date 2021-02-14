@@ -213,20 +213,20 @@ header {
     }
     .card {
         width: 260px;
-        height: 280px;
+        height: 340px;
     }
 
     .card img {
-        height: 230px;
+        height: 280px;
         width: 250px;
         overflow: hidden;
     }
 
     #caption , #delete , #update {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     #author {
-        font-size: 12px;
+        font-size: 14px;
     }
   }
