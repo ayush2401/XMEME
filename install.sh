@@ -18,6 +18,8 @@ sudo systemctl start mongod
 
 sudo systemctl enable mongod
 
+mongo node-app --eval "db.dropDatabase()"
+
 npm init -y
 
 
