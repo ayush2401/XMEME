@@ -17,8 +17,9 @@ One can update any meme with a new caption and with new image. All it requires i
 
 <img src = 'public/images/screen2.jpg' width = "100%" height = "450">
 
-
 # Techstack
+
+- Frontend:- HTML , CSS , JAVASCRIPT <br> <br>
 
 - BACKEND:- NODE.js , EXPRESS , MONGODB for Database
 
