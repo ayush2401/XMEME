@@ -5,7 +5,7 @@
 
 # About the app
 
-The website is featured to post memes , if not happy then , delete a meme , if confused , udate a meme. <br>
+The website is featured to post memes , if not happy then , delete a meme , if confused , update a meme. <br>
 User can post the meme out of their library with creative caption.  <br>
 The app will display all contributed memes with username who created and also with imaginative caption. <br>
 One can update any meme with a new caption and with new image. All it requires is the image url which will automatically fetch the image to the gallery and bind up the user's credentials.
@@ -59,7 +59,13 @@ The frontend and backend are connected via REST API. <br>
 
 - Categorising memes. <br> <br>
 
-- <h1> YALA <a> http://surfer-xmeme.herokuapp.com/ </a>
+- <h1> YALA 
+
+<a> http://surfer-xmeme.herokuapp.com/ </a>
+
+This has been my initial stage of development . Feedbacks are welcomed.
+
+
 
 
 
