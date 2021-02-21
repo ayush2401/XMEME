@@ -12,10 +12,10 @@ One can update any meme with a new caption and with new image. All it requires i
 
 # OVERVIEW
 
-<img src = 'public/images/screen1.jpg' width = "100%" height = "350">
+<img src = 'public/images/screen1.jpg' width = "100%" height = "450">
 
 
-<img src = 'public/images/screen2.jpg' width = "100%" height = "350">
+<img src = 'public/images/screen2.jpg' width = "100%" height = "450">
 
 
 # Techstack
