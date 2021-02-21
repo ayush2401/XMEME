@@ -17,5 +17,14 @@
     "start": "node src/app.js"
   },
   "author": "ayush saraf",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayush2401/XMEME.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ayush2401/XMEME/issues"
+  },
+  "homepage": "https://github.com/ayush2401/XMEME#readme"
 }
